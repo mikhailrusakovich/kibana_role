@@ -1,7 +1,7 @@
 ---
-- name: restart kibana
+- name: restart kibana # handler для перезапуска сервиса
   become: true
   service:
     name: kibana
     state: restarted
-  when: ansible_virtualization_type != 'docker'
+  when: ansible_virtualization_type != 'docker' # проверка, что сервис запущен не на docker

@@ -1,5 +1,5 @@
 ---
-- name: Install Kibana
+- name: Install Kibana # выполняется установка пакета, task выполняется в зависимости от значения в переменной ansible_facts.pkg_mgr
   become: true
   apt:
     deb: "/tmp/kibana-{{ kibana_version }}-amd64.deb"

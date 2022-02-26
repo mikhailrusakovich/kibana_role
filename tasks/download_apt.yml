@@ -1,5 +1,5 @@
 ---
-- name: "Download Kibana's deb"
+- name: "Download Kibana's deb" # производится закгрузка пакета установки Kibana. Выполняется в зависимости от значения переменно ansible_facts.pkg_mgr (значение получает при сборе фактов о хосте). Выполняется для deb
   get_url:
     url: "https://artifacts.elastic.co/downloads/kibana/kibana-{{ kibana_version }}-amd64.deb"
     dest: "files/kibana-{{ kibana_version }}-amd64.deb"

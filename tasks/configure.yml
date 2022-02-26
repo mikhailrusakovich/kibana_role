@@ -1,5 +1,5 @@
 ---
-- name: Configure kibana
+- name: Configure kibana # скачиваем template. Выполняется после download и install tasks
   become: true
   template:
     src: kibana.yml.j2

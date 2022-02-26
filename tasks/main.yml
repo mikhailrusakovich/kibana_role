@@ -1,11 +1,11 @@
 ---
-- import_tasks: precheck.yml
-- name: Check files directory exists
+- import_tasks: precheck.yml # статическое выполнение task. Проверка исполнимости на хосте и его системе
+- name: Check files directory exists # создание папки
   file:
     name: files/
     state: directory
-  run_once: true
-  delegate_to: localhost
-- include_tasks: "download_{{ ansible_facts.pkg_mgr }}.yml"
-- include_tasks: "install_{{ ansible_facts.pkg_mgr }}.yml"
-- import_tasks: configure.yml
+  run_once: true # выполнение единожды только
+  delegate_to: localhost # выполнение на control node
+- include_tasks: "download_{{ ansible_facts.pkg_mgr }}.yml" # выполнение task run-time. Происходит выбор исполняемого task в заисимости от значения переменной
+- include_tasks: "install_{{ ansible_facts.pkg_mgr }}.yml" # выполнение task run-time. Происходит выбор исполняемого task в заисимости от значения переменной
+- import_tasks: configure.yml # выполнение task после выполнения предыдущих
