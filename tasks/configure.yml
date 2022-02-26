@@ -1,5 +1,5 @@
 ---
-- name: Configure Kibana
+- name: Configure kibana
   become: true
   template:
     src: kibana.yml.j2
