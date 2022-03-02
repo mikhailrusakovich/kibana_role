@@ -1,3 +1,6 @@
-server.host: "0.0.0.0"
-elasticsearch.hosts: ["http://{{ hostvars['el']['ansible_facts']['default_ipv4']['address'] }}:9200"]
-kibana.index: ".kibana"
+---
+# Default Kibana configuration from kibana-docker.
+
+server.name: kibana
+server.host: "0"
+elasticsearch.hosts: [ "http://elasticsearch:9200" ]
